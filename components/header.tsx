@@ -12,7 +12,7 @@ export function Header() {
 
   return (
     <header className="border-b">
-      <div className="container flex h-16 items-center justify-between py-4">
+      <div className="container flex h-16 items-center justify-between py-4 px-4 md:px-6 mx-auto">
         <div className="flex items-center gap-4">
           <Link href="/competitions" className="flex items-center gap-2">
             <Trophy className="h-6 w-6" />

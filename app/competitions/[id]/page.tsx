@@ -46,7 +46,7 @@ export default async function CompetitionPage({ params }: { params: { id: string
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-1 container py-6">
+      <main className="flex-1 container px-4 md:px-6 py-6 mx-auto">
         <CompetitionDetails competition={competition} isOwner={competition.ownerTenantId === currentSchool.id} />
 
         {currentUser.role === "admin" ? (

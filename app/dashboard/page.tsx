@@ -43,7 +43,7 @@ export default async function DashboardPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-1 container py-6">
+      <main className="flex-1 container px-4 md:px-6 py-6 mx-auto">
         <h1 className="text-3xl font-bold mb-6">Student Dashboard</h1>
 
         <StudentDashboard
