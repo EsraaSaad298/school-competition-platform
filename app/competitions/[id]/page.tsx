@@ -5,6 +5,7 @@ import { Header } from "@/components/header"
 import { CompetitionDetails } from "@/components/competition-details"
 import { AdminCompetitionView } from "@/components/admin-competition-view"
 import { StudentCompetitionView } from "@/components/student-competition-view"
+import type { User } from "@/lib/types"
 
 export default async function CompetitionPage({ params }: { params: { id: string } }) {
   const { id } = params
@@ -18,8 +19,14 @@ export default async function CompetitionPage({ params }: { params: { id: string
     redirect("/login")
   }
 
-  const currentSchool = JSON.parse(currentSchoolCookie)
-  const currentUser = JSON.parse(currentUserCookie)
+  let currentSchool, currentUser
+  try {
+    currentSchool = JSON.parse(currentSchoolCookie)
+    currentUser = JSON.parse(currentUserCookie) as User
+  } catch (error) {
+    // If we can't parse the cookies, redirect to login
+    redirect("/login")
+  }
 
   // Get the competition
   const competition = await getCompetition(id)

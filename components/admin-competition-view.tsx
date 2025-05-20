@@ -1,3 +1,5 @@
+"use client"
+
 import type { Competition, Registration } from "@/lib/types"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import type { Competition } from "@/lib/types"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -24,7 +24,7 @@ export function StudentCompetitionView({ competition, winningLikelihood, userId 
   const [checkingRegistration, setCheckingRegistration] = useState(true)
 
   // Check if student is already registered
-  useState(() => {
+  useEffect(() => {
     const checkRegistration = async () => {
       try {
         const registered = await isUserRegistered(userId, competition.id)
@@ -37,7 +37,7 @@ export function StudentCompetitionView({ competition, winningLikelihood, userId 
     }
 
     checkRegistration()
-  })
+  }, [userId, competition.id])
 
   const handleRegister = async () => {
     if (isRegistered) return
